@@ -1,10 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://bgsuokgrr1fup"]
+[gd_scene load_steps=8 format=3 uid="uid://bgsuokgrr1fup"]
 
 [ext_resource type="Texture2D" uid="uid://bkq5kqvrmhkhe" path="res://sky.png" id="1_raou6"]
 [ext_resource type="Texture2D" uid="uid://d1reinuw6prim" path="res://clouds_bg.png" id="2_uwmwo"]
 [ext_resource type="Texture2D" uid="uid://b37r6vfgbsg4h" path="res://glacial_mountains.png" id="3_ifnha"]
 [ext_resource type="Texture2D" uid="uid://du1ixitg7f7lp" path="res://clouds_mg_2.png" id="4_hnxq3"]
 [ext_resource type="PackedScene" uid="uid://ckd372yp3j4kv" path="res://player.tscn" id="5_gochw"]
+[ext_resource type="Script" path="res://BottomBoundary.gd" id="6_q7a3n"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_mj5ke"]
+b = Vector2(384, 0)
 
 [node name="Node2D" type="Node2D"]
 
@@ -45,5 +49,19 @@ texture_filter = 1
 texture = ExtResource("4_hnxq3")
 centered = false
 
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(384, 0)
+
 [node name="Player" parent="." instance=ExtResource("5_gochw")]
-position = Vector2(195, 156)
+position = Vector2(192, 156)
+
+[node name="BottomBoundary" type="StaticBody2D" parent="." node_paths=PackedStringArray("player")]
+script = ExtResource("6_q7a3n")
+player = NodePath("../Player")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomBoundary"]
+position = Vector2(0, 200)
+shape = SubResource("SegmentShape2D_mj5ke")
+one_way_collision = true
+one_way_collision_margin = 10.0
+debug_color = Color(0.954703, 0, 0.547048, 0.42)
