@@ -55,7 +55,7 @@ motion_mirroring = Vector2(384, 0)
 [node name="Player" parent="." instance=ExtResource("5_gochw")]
 position = Vector2(192, 156)
 
-[node name="BottomBoundary" type="StaticBody2D" parent="." node_paths=PackedStringArray("player")]
+[node name="BottomBoundary" type="StaticBody2D" parent="." node_paths=PackedStringArray("player") groups=["clouds"]]
 script = ExtResource("6_q7a3n")
 player = NodePath("../Player")
 

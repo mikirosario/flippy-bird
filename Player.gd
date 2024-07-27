@@ -5,6 +5,8 @@ const SPEED = 400.0
 const GRAVITY = 300.0
 const JUMP = -150.0
 const MAXHEIGHT = -250.0
+const BOUNCE_FACTOR = 0.8
+const BOUNCE_THRESHOLD = 15.0 # Minimum bounce impact velocity
 
 func _process(delta):
 	velocity.y += delta * GRAVITY
@@ -16,4 +18,12 @@ func _process(delta):
 	#print ("Vel Multiplier: %s" % velMultiplier)
 	#print ("Vel Multiplier: %s" % velocity.y)
 	velocity.x = SPEED
-	move_and_slide()
+	var collision : KinematicCollision2D = move_and_collide(velocity * delta)
+	if collision:
+		var impact_velocity = abs(velocity.dot(collision.get_normal()))
+		print(impact_velocity)
+		if collision.get_collider().is_in_group("clouds") and impact_velocity > BOUNCE_THRESHOLD:
+			velocity = velocity.bounce(collision.get_normal()) * BOUNCE_FACTOR
+		else:
+			velocity = velocity.slide(collision.get_normal())
+	
