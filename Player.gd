@@ -20,10 +20,14 @@ func _process(delta):
 	velocity.x = SPEED
 	var collision : KinematicCollision2D = move_and_collide(velocity * delta)
 	if collision:
-		var impact_velocity = abs(velocity.dot(collision.get_normal()))
-		print(impact_velocity)
-		if collision.get_collider().is_in_group("clouds") and impact_velocity > BOUNCE_THRESHOLD:
-			velocity = velocity.bounce(collision.get_normal()) * BOUNCE_FACTOR
+		if _collided_with_clouds(collision):
+			velocity = _bounce_off_clouds(collision)
 		else:
 			velocity = velocity.slide(collision.get_normal())
-	
+
+func _collided_with_clouds(collision : KinematicCollision2D) -> bool:
+	var impact_velocity = abs(velocity.dot(collision.get_normal()))
+	return collision.get_collider().is_in_group("clouds") and impact_velocity > BOUNCE_THRESHOLD
+
+func _bounce_off_clouds(collision : KinematicCollision2D) -> Vector2:
+	return velocity.bounce(collision.get_normal()) * BOUNCE_FACTOR
