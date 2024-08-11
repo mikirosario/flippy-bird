@@ -1,17 +1,133 @@
-[gd_scene load_steps=4 format=3 uid="uid://ckd372yp3j4kv"]
+[gd_scene load_steps=19 format=3 uid="uid://ckd372yp3j4kv"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_2mnu2"]
-[ext_resource type="Texture2D" uid="uid://dlhffdw1k8tnx" path="res://icon.svg" id="2_pxhcm"]
+[ext_resource type="Texture2D" uid="uid://bvq3ks5lcfdl0" path="res://Assets/Player/bird_spritesheet_48w_32h.png" id="2_mshhl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_po2fe"]
+atlas = ExtResource("2_mshhl")
+region = Rect2(192, 160, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ki04"]
+atlas = ExtResource("2_mshhl")
+region = Rect2(240, 160, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_npge3"]
+atlas = ExtResource("2_mshhl")
+region = Rect2(288, 160, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pauef"]
+atlas = ExtResource("2_mshhl")
+region = Rect2(336, 160, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8hyle"]
+atlas = ExtResource("2_mshhl")
+region = Rect2(384, 160, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s0kj4"]
+atlas = ExtResource("2_mshhl")
+region = Rect2(0, 192, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t07if"]
+atlas = ExtResource("2_mshhl")
+region = Rect2(48, 192, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ois6b"]
+atlas = ExtResource("2_mshhl")
+region = Rect2(96, 192, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_plhdp"]
+atlas = ExtResource("2_mshhl")
+region = Rect2(144, 192, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7vt03"]
+atlas = ExtResource("2_mshhl")
+region = Rect2(192, 192, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qdhny"]
+atlas = ExtResource("2_mshhl")
+region = Rect2(240, 192, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v2gd5"]
+atlas = ExtResource("2_mshhl")
+region = Rect2(288, 192, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_trc5l"]
+atlas = ExtResource("2_mshhl")
+region = Rect2(336, 192, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_36ylt"]
+atlas = ExtResource("2_mshhl")
+region = Rect2(384, 192, 48, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kxm42"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_po2fe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3ki04")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_npge3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pauef")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8hyle")
+}],
+"loop": true,
+"name": &"Climb",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s0kj4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t07if")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ois6b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_plhdp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7vt03")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qdhny")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v2gd5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_trc5l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_36ylt")
+}],
+"loop": true,
+"name": &"Glide",
+"speed": 10.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fsgni"]
 size = Vector2(66, 67)
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("Animator")]
 script = ExtResource("1_2mnu2")
+Animator = NodePath("AnimatedSprite2D")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_pxhcm")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(0.75, 0.75)
+sprite_frames = SubResource("SpriteFrames_kxm42")
+animation = &"Climb"
+autoplay = "Climb"
+frame_progress = 0.419805
 
 [node name="Camera2D" type="Camera2D" parent="."]
 scale = Vector2(0.5, 0.5)
