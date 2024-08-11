@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b37r6vfgbsg4h"
-path="res://.godot/imported/glacial_mountains.png-b98a43bc10494c1ba5ef875e96c3dce4.ctex"
+uid="uid://du1ixitg7f7lp"
+path="res://.godot/imported/clouds_mg_2.png-869035a3e1491ab451902b7aa1760730.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://glacial_mountains.png"
-dest_files=["res://.godot/imported/glacial_mountains.png-b98a43bc10494c1ba5ef875e96c3dce4.ctex"]
+source_file="res://Assets/Background/clouds_mg_2.png"
+dest_files=["res://.godot/imported/clouds_mg_2.png-869035a3e1491ab451902b7aa1760730.ctex"]
 
 [params]
 
