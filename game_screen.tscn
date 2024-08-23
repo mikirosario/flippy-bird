@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://bgsuokgrr1fup"]
 
-[ext_resource type="Texture2D" uid="uid://bkq5kqvrmhkhe" path="res://sky.png" id="1_raou6"]
-[ext_resource type="Texture2D" uid="uid://d1reinuw6prim" path="res://clouds_bg.png" id="2_uwmwo"]
-[ext_resource type="Texture2D" uid="uid://b37r6vfgbsg4h" path="res://glacial_mountains.png" id="3_ifnha"]
-[ext_resource type="Texture2D" uid="uid://du1ixitg7f7lp" path="res://clouds_mg_2.png" id="4_hnxq3"]
+[ext_resource type="Texture2D" uid="uid://bkq5kqvrmhkhe" path="res://Assets/Background/sky.png" id="1_raou6"]
+[ext_resource type="Texture2D" uid="uid://d1reinuw6prim" path="res://Assets/Background/clouds_bg.png" id="2_uwmwo"]
+[ext_resource type="Texture2D" uid="uid://b37r6vfgbsg4h" path="res://Assets/Background/glacial_mountains.png" id="3_ifnha"]
+[ext_resource type="Texture2D" uid="uid://du1ixitg7f7lp" path="res://Assets/Background/clouds_mg_2.png" id="4_hnxq3"]
 [ext_resource type="PackedScene" uid="uid://ckd372yp3j4kv" path="res://player.tscn" id="5_gochw"]
 
 [node name="Node2D" type="Node2D"]

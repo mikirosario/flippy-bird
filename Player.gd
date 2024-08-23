@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-
+@export var Animator : AnimatedSprite2D
 const SPEED = 400.0 
 const GRAVITY = 300.0
 const JUMP = -150.0
@@ -29,6 +29,8 @@ func _process(delta):
 	velocity.x = SPEED * lowAltFactor
 	if abs(velocity.y) < 0.005:
 		velocity.y = 0.0
+	Animator.speed_scale = highAltFactor + 0.2
+	rotation_degrees
 	move_and_slide()
 	#var collision : KinematicCollision2D = move_and_collide(velocity * delta)
 	#if collision and _collided_with_clouds(collision):
