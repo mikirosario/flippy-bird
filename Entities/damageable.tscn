@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://ceaevn4oqid5s"]
 
 [ext_resource type="PackedScene" uid="uid://c4lr6timpvlpo" path="res://Entities/physical.tscn" id="1_bs7fc"]
-[ext_resource type="Script" path="res://Entities/damageable.gd" id="2_r3vkw"]
+[ext_resource type="Script" path="res://Scripts/damageable.gd" id="2_r3vkw"]
 
 [node name="Entity" instance=ExtResource("1_bs7fc")]
 script = ExtResource("2_r3vkw")

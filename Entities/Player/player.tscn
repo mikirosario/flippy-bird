@@ -1,11 +1,11 @@
 [gd_scene load_steps=5 format=3 uid="uid://dfex0svqebiyg"]
 
 [ext_resource type="PackedScene" uid="uid://ceaevn4oqid5s" path="res://Entities/damageable.tscn" id="1_kq3hg"]
-[ext_resource type="Script" path="res://Entities/Player/player.gd" id="2_2ts5x"]
+[ext_resource type="Script" path="res://Scripts/player.gd" id="2_2ts5x"]
 [ext_resource type="SpriteFrames" uid="uid://diy0icla53yr2" path="res://Entities/Player/player_animations.tres" id="3_2dbht"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qpm31"]
-size = Vector2(44, 32)
+size = Vector2(19, 14)
 
 [node name="Entity" node_paths=PackedStringArray("Animator") instance=ExtResource("1_kq3hg")]
 script = ExtResource("2_2ts5x")
@@ -21,7 +21,7 @@ autoplay = "Climb"
 frame_progress = 0.13062
 
 [node name="CollisionShape2D" parent="." index="1"]
-position = Vector2(1, 0)
+position = Vector2(0.5, -1)
 shape = SubResource("RectangleShape2D_qpm31")
 
 [node name="Camera2D" type="Camera2D" parent="." index="2"]

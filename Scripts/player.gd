@@ -1,4 +1,4 @@
-extends "res://Entities/damageable.gd"
+extends "res://Scripts/damageable.gd"
 
 @export var Animator : AnimatedSprite2D
 const SPEED = 400.0 
@@ -10,9 +10,9 @@ const MINHEIGHT = 165
 #const BOUNCE_THRESHOLD = 15.0 # Minimum bounce impact velocity
 
 func _process(delta):
-	var velMultiplier = 1.0 - min(max(inverse_lerp(0, JUMP, velocity.y), 0.0), 1.0)		# Decreases to 0 as velocity.y approaches JUMP, 1 at or above 0
-	var highAltFactor = min(max(inverse_lerp(MINHEIGHT, MAXHEIGHT, position.y), 0.0), 1.0) # Increases to 1.0 as height approaches MAXHEIGHT
-	var lowAltFactor = 1.0 - highAltFactor # Increases to 1.0 as height approaches MINHEIGHT
+	var velMultiplier = 1.0 - min(max(inverse_lerp(0, JUMP, velocity.y), 0.0), 1.0)			# Decreases to 0 as velocity.y approaches JUMP, 1 at or above 0
+	var highAltFactor = min(max(inverse_lerp(MINHEIGHT, MAXHEIGHT, position.y), 0.0), 1.0)	# Increases to 1.0 as height approaches MAXHEIGHT
+	var lowAltFactor = 1.0 - highAltFactor													# Increases to 1.0 as height approaches MINHEIGHT
 	var lift = -GRAVITY
 	if velocity.y > 0:
 		lift += -velocity.y
