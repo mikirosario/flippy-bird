@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://dxlf7b553ubu0"]
+
+[ext_resource type="PackedScene" uid="uid://ceaevn4oqid5s" path="res://Entities/damageable.tscn" id="1_w2lek"]
+
+[node name="Entity" instance=ExtResource("1_w2lek")]

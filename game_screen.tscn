@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://d1reinuw6prim" path="res://Assets/Background/clouds_bg.png" id="2_uwmwo"]
 [ext_resource type="Texture2D" uid="uid://b37r6vfgbsg4h" path="res://Assets/Background/glacial_mountains.png" id="3_ifnha"]
 [ext_resource type="Texture2D" uid="uid://du1ixitg7f7lp" path="res://Assets/Background/clouds_mg_2.png" id="4_hnxq3"]
-[ext_resource type="PackedScene" uid="uid://ckd372yp3j4kv" path="res://player.tscn" id="5_gochw"]
+[ext_resource type="PackedScene" uid="uid://dfex0svqebiyg" path="res://Entities/Player/player.tscn" id="5_hm8ho"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -48,5 +48,5 @@ centered = false
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_mirroring = Vector2(384, 0)
 
-[node name="Player" parent="." instance=ExtResource("5_gochw")]
-position = Vector2(192, 156)
+[node name="Player" parent="." instance=ExtResource("5_hm8ho")]
+position = Vector2(191, 157)
