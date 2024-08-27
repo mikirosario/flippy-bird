@@ -11,6 +11,6 @@ func _process(delta):
 	velocity.y += GRAVITY * delta
 	move_and_slide()
 
-# TODO: This doesn't work, we never enter here. Need another way to free node. Maybe timer.
 func _on_visible_on_screen_notifier_2d_screen_exited():
+	print("FreedEnemy")
 	queue_free()

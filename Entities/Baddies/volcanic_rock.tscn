@@ -18,7 +18,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iyamb"]
 size = Vector2(129, 126)
 
-[node name="Entity" instance=ExtResource("1_cnrqs")]
+[node name="VolcanicRock" instance=ExtResource("1_cnrqs")]
 scale = Vector2(0.2, 0.2)
 script = ExtResource("2_3b0n1")
 
@@ -29,3 +29,10 @@ animation = &"Idle"
 [node name="CollisionShape2D" parent="." index="1"]
 position = Vector2(0.5, 0)
 shape = SubResource("RectangleShape2D_iyamb")
+
+[node name="VisibleOnScreenNotifier2D" parent="." index="2"]
+position = Vector2(0, 2.27374e-13)
+scale = Vector2(2, 2)
+rect = Rect2(-64, -64, 128, 128)
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
