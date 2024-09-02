@@ -4,8 +4,13 @@ const GRAVITY = 300.0
 const INERTIA_MIN = -50
 const INERTIA_MAX = -400
 
+var random_velocity : int
+
+func _init():
+	random_velocity = Globals.rng.randi_range(INERTIA_MIN, INERTIA_MAX)
+
 func _ready():
-	velocity.y += Globals.rng.randi_range(INERTIA_MIN, INERTIA_MAX)
+	velocity.y += random_velocity
 
 func _process(delta):
 	velocity.y += GRAVITY * delta

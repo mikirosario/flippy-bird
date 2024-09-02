@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://b8ukjonrnvyep"]
+
+[ext_resource type="Script" path="res://Scripts/indicator_tween.gd" id="1_v2ihr"]
+[ext_resource type="Texture2D" uid="uid://b8savakppmynu" path="res://Assets/HUD/hud_pos_indicator.png" id="2_74o20"]
+
+[node name="OffscreenIndicator" type="TextureRect"]
+texture_filter = 1
+texture_repeat = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -27.0
+offset_top = -27.0
+grow_horizontal = 0
+grow_vertical = 0
+rotation = 1.5708
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_74o20")
+script = ExtResource("1_v2ihr")
