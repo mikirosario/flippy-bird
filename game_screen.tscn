@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bgsuokgrr1fup"]
+[gd_scene load_steps=10 format=3 uid="uid://bgsuokgrr1fup"]
 
 [ext_resource type="Texture2D" uid="uid://bkq5kqvrmhkhe" path="res://Assets/Background/sky.png" id="1_raou6"]
 [ext_resource type="Texture2D" uid="uid://d1reinuw6prim" path="res://Assets/Background/clouds_bg.png" id="2_uwmwo"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dfex0svqebiyg" path="res://Entities/Player/player.tscn" id="5_hm8ho"]
 [ext_resource type="PackedScene" uid="uid://dpsswasb4fq6y" path="res://Entities/Baddies/volcanic_rock.tscn" id="6_jaav7"]
 [ext_resource type="Script" path="res://Scripts/spawn_timer.gd" id="7_l3x35"]
+[ext_resource type="PackedScene" uid="uid://13sdnec8sb2b" path="res://Entities/Baddies/ufo_mad.tscn" id="9_r3olp"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -49,6 +50,7 @@ texture = ExtResource("4_hnxq3")
 centered = false
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+rotation = 2.76945
 motion_mirroring = Vector2(384, 0)
 
 [node name="Player" parent="." instance=ExtResource("5_hm8ho")]
@@ -61,5 +63,8 @@ Enemies = Array[PackedScene]([ExtResource("6_jaav7")])
 Player = NodePath("../Player")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="EnemySpawner"]
+
+[node name="UFO_Mad" parent="." instance=ExtResource("9_r3olp")]
+position = Vector2(338, 106)
 
 [connection signal="timeout" from="EnemySpawner" to="EnemySpawner" method="_on_timeout"]

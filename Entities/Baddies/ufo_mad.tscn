@@ -1,0 +1,52 @@
+[gd_scene load_steps=8 format=3 uid="uid://13sdnec8sb2b"]
+
+[ext_resource type="PackedScene" uid="uid://ceaevn4oqid5s" path="res://Entities/damageable.tscn" id="1_a6p6k"]
+[ext_resource type="Texture2D" uid="uid://ds63yvvkgl1re" path="res://Assets/Baddies/Kawaii UFO Sprite - Blank.png" id="2_krr47"]
+[ext_resource type="Script" path="res://Scripts/ufo_mad.gd" id="2_x0rk6"]
+[ext_resource type="Texture2D" uid="uid://dat2jhjqi66pt" path="res://Assets/Baddies/Kawaii UFO Sprite - Surprised.png" id="3_6xi7v"]
+[ext_resource type="Texture2D" uid="uid://dberu24f0v2xm" path="res://Assets/Baddies/Kawaii UFO Sprite - Mad.png" id="4_ora00"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hejlj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_krr47")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_6xi7v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ora00")
+}],
+"loop": true,
+"name": &"Surprised",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2yqvm"]
+radius = 96.7471
+
+[node name="UFO_Mad" node_paths=PackedStringArray("Animator") instance=ExtResource("1_a6p6k")]
+scale = Vector2(0.1, 0.1)
+disable_mode = 1
+motion_mode = 1
+floor_constant_speed = true
+floor_block_on_wall = false
+platform_on_leave = 2
+script = ExtResource("2_x0rk6")
+Animator = NodePath("AnimatedSprite2D")
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+texture_filter = 1
+texture_repeat = 1
+sprite_frames = SubResource("SpriteFrames_hejlj")
+animation = &"Surprised"
+autoplay = "Surprised"
+frame_progress = 0.99843
+flip_h = true
+
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource("CircleShape2D_2yqvm")
+
+[node name="VisibleOnScreenNotifier2D" parent="." index="2"]
+rect = Rect2(-150, -125, 300, 250)

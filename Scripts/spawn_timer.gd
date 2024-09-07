@@ -15,7 +15,7 @@ func _ready() -> void:
 	PlayerCamera = Player.get_node("Camera2D")
 	next_mob = get_next_mob()
 	indicator = spawn_indicator(remap(next_mob.random_velocity, next_mob.INERTIA_MIN, next_mob.INERTIA_MAX, 0.1, 0.5))
-	start()
+	# start()
 
 #func get_enemy_spawn_position(bounds : Rect2) -> Vector2:
 	#return Vector2(bounds.end.x, Globals.MINHEIGHT)

@@ -8,6 +8,8 @@
 size = Vector2(19, 14)
 
 [node name="Entity" node_paths=PackedStringArray("Animator") instance=ExtResource("1_kq3hg")]
+motion_mode = 1
+platform_on_leave = 2
 script = ExtResource("2_2ts5x")
 Animator = NodePath("AnimatedSprite2D")
 
