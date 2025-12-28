@@ -73,8 +73,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gxj83"]
-radius = 13.0
-height = 38.0
+radius = 21.0
+height = 62.0
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_gxj83")

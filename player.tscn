@@ -115,7 +115,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fsgni"]
-size = Vector2(21, 8)
+size = Vector2(27, 8)
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("Animator")]
 script = ExtResource("1_2mnu2")
@@ -134,5 +134,5 @@ limit_top = -200
 limit_bottom = 200
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1.5, -5)
+position = Vector2(4.5, -5)
 shape = SubResource("RectangleShape2D_fsgni")

@@ -2,6 +2,7 @@ extends Node2D
 
 @export var balloon_scene: PackedScene
 @export var player_path: NodePath
+@export var score_manager: ScoreManager
 
 @export var max_balloons := 4
 @export var spawn_ahead_min := 200.0
@@ -25,8 +26,7 @@ func _process(_delta):
 
 func spawn_balloon():
 	var balloon = balloon_scene.instantiate()
-
-	# Pick spawn position
+	balloon.score_manager = score_manager
 	var x_offset = randf_range(spawn_ahead_min, spawn_ahead_max)
 	var y = randf_range(spawn_y_min, spawn_y_max)
 
