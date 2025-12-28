@@ -1,0 +1,97 @@
+[gd_scene load_steps=13 format=3 uid="uid://titgqjv7yd6m"]
+
+[ext_resource type="Script" path="res://balloon.gd" id="1_gxj83"]
+[ext_resource type="Texture2D" path="res://Assets/Mobs/Balloons/PinkSpriteSheetAnimation.png" id="1_olxh2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gxj83"]
+atlas = ExtResource("1_olxh2")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_et1yy"]
+atlas = ExtResource("1_olxh2")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_av4c8"]
+atlas = ExtResource("1_olxh2")
+region = Rect2(512, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_72khw"]
+atlas = ExtResource("1_olxh2")
+region = Rect2(1024, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vorgg"]
+atlas = ExtResource("1_olxh2")
+region = Rect2(1536, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_55e76"]
+atlas = ExtResource("1_olxh2")
+region = Rect2(2048, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kng3y"]
+atlas = ExtResource("1_olxh2")
+region = Rect2(2560, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ali4x"]
+atlas = ExtResource("1_olxh2")
+region = Rect2(3072, 0, 512, 512)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ysrli"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gxj83")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_et1yy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_av4c8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_72khw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vorgg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_55e76")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kng3y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ali4x")
+}],
+"loop": false,
+"name": &"Pop",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gxj83"]
+radius = 13.0
+height = 38.0
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_gxj83")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -2.3841858e-07)
+scale = Vector2(0.1, 0.1)
+sprite_frames = SubResource("SpriteFrames_ysrli")
+animation = &"Pop"
+speed_scale = 3.0
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -2)
+shape = SubResource("CapsuleShape2D_gxj83")
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
