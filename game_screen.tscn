@@ -1,10 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://bgsuokgrr1fup"]
+[gd_scene load_steps=8 format=3 uid="uid://bgsuokgrr1fup"]
 
 [ext_resource type="Texture2D" uid="uid://bkq5kqvrmhkhe" path="res://Assets/Background/sky.png" id="1_raou6"]
 [ext_resource type="Texture2D" uid="uid://d1reinuw6prim" path="res://Assets/Background/clouds_bg.png" id="2_uwmwo"]
 [ext_resource type="Texture2D" uid="uid://b37r6vfgbsg4h" path="res://Assets/Background/glacial_mountains.png" id="3_ifnha"]
 [ext_resource type="Texture2D" uid="uid://du1ixitg7f7lp" path="res://Assets/Background/clouds_mg_2.png" id="4_hnxq3"]
 [ext_resource type="PackedScene" uid="uid://ckd372yp3j4kv" path="res://player.tscn" id="5_gochw"]
+[ext_resource type="Script" uid="uid://cspqxxexu7t3x" path="res://spawner.gd" id="6_lxtpa"]
+[ext_resource type="PackedScene" uid="uid://titgqjv7yd6m" path="res://balloon_pink.tscn" id="7_3vj30"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -50,3 +52,8 @@ motion_mirroring = Vector2(384, 0)
 
 [node name="Player" parent="." instance=ExtResource("5_gochw")]
 position = Vector2(192, 156)
+
+[node name="Spawner" type="Node2D" parent="."]
+script = ExtResource("6_lxtpa")
+balloon_scene = ExtResource("7_3vj30")
+player_path = NodePath("../Player")
