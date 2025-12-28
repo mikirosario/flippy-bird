@@ -1,6 +1,6 @@
 [gd_scene load_steps=19 format=3 uid="uid://ckd372yp3j4kv"]
 
-[ext_resource type="Script" path="res://Player.gd" id="1_2mnu2"]
+[ext_resource type="Script" uid="uid://dalqqjwuvstsq" path="res://Player.gd" id="1_2mnu2"]
 [ext_resource type="Texture2D" uid="uid://bvq3ks5lcfdl0" path="res://Assets/Player/bird_spritesheet_48w_32h.png" id="2_mshhl"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_po2fe"]
@@ -115,7 +115,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fsgni"]
-size = Vector2(66, 67)
+size = Vector2(21, 8)
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("Animator")]
 script = ExtResource("1_2mnu2")
@@ -125,9 +125,8 @@ Animator = NodePath("AnimatedSprite2D")
 texture_filter = 1
 scale = Vector2(0.75, 0.75)
 sprite_frames = SubResource("SpriteFrames_kxm42")
-animation = &"Climb"
+animation = &"Glide"
 autoplay = "Climb"
-frame_progress = 0.419805
 
 [node name="Camera2D" type="Camera2D" parent="."]
 scale = Vector2(0.5, 0.5)
@@ -135,5 +134,5 @@ limit_top = -200
 limit_bottom = 200
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -0.5)
+position = Vector2(1.5, -5)
 shape = SubResource("RectangleShape2D_fsgni")
