@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bgsuokgrr1fup"]
+[gd_scene load_steps=14 format=3 uid="uid://bgsuokgrr1fup"]
 
 [ext_resource type="Texture2D" uid="uid://bkq5kqvrmhkhe" path="res://Assets/Background/sky.png" id="1_raou6"]
 [ext_resource type="Texture2D" uid="uid://d1reinuw6prim" path="res://Assets/Background/clouds_bg.png" id="2_uwmwo"]
@@ -10,13 +10,15 @@
 [ext_resource type="Script" uid="uid://coi1fhldku8nw" path="res://score_manager.gd" id="8_6mti6"]
 [ext_resource type="FontFile" uid="uid://dapvy1mdfgw4b" path="res://Assets/Fonts/Devotion.ttf" id="9_aybt7"]
 [ext_resource type="Script" uid="uid://bpe85qx0qtciu" path="res://score.gd" id="10_aybt7"]
+[ext_resource type="Script" uid="uid://bwmgw2fvlhdgy" path="res://sfx.gd" id="11_viusa"]
+[ext_resource type="AudioStream" uid="uid://bvd1hy8g7pv34" path="res://Assets/Sounds/pop.mp3" id="12_o17u5"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_aybt7"]
 font = ExtResource("9_aybt7")
 outline_size = 2
 outline_color = Color(0.12576056, 0.12576044, 0.12735975, 1)
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D2" type="Node2D"]
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
@@ -61,11 +63,16 @@ motion_mirroring = Vector2(384, 0)
 [node name="Player" parent="." instance=ExtResource("5_gochw")]
 position = Vector2(192, 156)
 
-[node name="Spawner" type="Node2D" parent="." node_paths=PackedStringArray("score_manager")]
+[node name="Spawner" type="Node2D" parent="." node_paths=PackedStringArray("score_manager", "sfx_player")]
 script = ExtResource("6_lxtpa")
 balloon_scene = ExtResource("7_3vj30")
 player_path = NodePath("../Player")
 score_manager = NodePath("../ScoreManager")
+sfx_player = NodePath("../SFX")
+spawn_ahead_min = null
+spawn_ahead_max = null
+spawn_y_min = null
+spawn_y_max = null
 
 [node name="ScoreManager" type="Node" parent="."]
 script = ExtResource("8_6mti6")
@@ -81,3 +88,7 @@ text = "SCORE: 0"
 label_settings = SubResource("LabelSettings_aybt7")
 script = ExtResource("10_aybt7")
 score_manager = NodePath("../../ScoreManager")
+
+[node name="SFX" type="Node" parent="."]
+script = ExtResource("11_viusa")
+pop_sfx = ExtResource("12_o17u5")
