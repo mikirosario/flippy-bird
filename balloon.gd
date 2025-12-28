@@ -4,6 +4,8 @@ const MAXHEIGHT = -280.0
 const MINHEIGHT = 165
 const GRAVITY = 300.0
 
+var score_manager: Node = null
+@export var score_value := 10
 @onready var AnimatedSprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var Bouyancy: float = randf_range(25, 100)
 var velocity: Vector2 = Vector2.ZERO
@@ -24,6 +26,10 @@ func _physics_process(delta: float) -> void:
 	position += velocity * delta     
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
+	if score_manager:
+		score_manager.add(score_value)
+	else:
+		push_warning("Balloon popped without ScoreManager")
 	AnimatedSprite.play("Pop")
 
 func _on_animated_sprite_2d_animation_finished() -> void:

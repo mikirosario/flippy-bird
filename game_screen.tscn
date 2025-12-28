@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bgsuokgrr1fup"]
+[gd_scene load_steps=12 format=3 uid="uid://bgsuokgrr1fup"]
 
 [ext_resource type="Texture2D" uid="uid://bkq5kqvrmhkhe" path="res://Assets/Background/sky.png" id="1_raou6"]
 [ext_resource type="Texture2D" uid="uid://d1reinuw6prim" path="res://Assets/Background/clouds_bg.png" id="2_uwmwo"]
@@ -6,7 +6,15 @@
 [ext_resource type="Texture2D" uid="uid://du1ixitg7f7lp" path="res://Assets/Background/clouds_mg_2.png" id="4_hnxq3"]
 [ext_resource type="PackedScene" uid="uid://ckd372yp3j4kv" path="res://player.tscn" id="5_gochw"]
 [ext_resource type="Script" uid="uid://cspqxxexu7t3x" path="res://spawner.gd" id="6_lxtpa"]
-[ext_resource type="PackedScene" uid="uid://titgqjv7yd6m" path="res://balloon_pink.tscn" id="7_3vj30"]
+[ext_resource type="PackedScene" uid="uid://bc3tmln3tp6ln" path="res://balloon_pink.tscn" id="7_3vj30"]
+[ext_resource type="Script" uid="uid://coi1fhldku8nw" path="res://score_manager.gd" id="8_6mti6"]
+[ext_resource type="FontFile" uid="uid://dapvy1mdfgw4b" path="res://Assets/Fonts/Devotion.ttf" id="9_aybt7"]
+[ext_resource type="Script" uid="uid://bpe85qx0qtciu" path="res://score.gd" id="10_aybt7"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_aybt7"]
+font = ExtResource("9_aybt7")
+outline_size = 2
+outline_color = Color(0.12576056, 0.12576044, 0.12735975, 1)
 
 [node name="Node2D" type="Node2D"]
 
@@ -53,7 +61,23 @@ motion_mirroring = Vector2(384, 0)
 [node name="Player" parent="." instance=ExtResource("5_gochw")]
 position = Vector2(192, 156)
 
-[node name="Spawner" type="Node2D" parent="."]
+[node name="Spawner" type="Node2D" parent="." node_paths=PackedStringArray("score_manager")]
 script = ExtResource("6_lxtpa")
 balloon_scene = ExtResource("7_3vj30")
 player_path = NodePath("../Player")
+score_manager = NodePath("../ScoreManager")
+
+[node name="ScoreManager" type="Node" parent="."]
+script = ExtResource("8_6mti6")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer" node_paths=PackedStringArray("score_manager")]
+offset_left = 12.0
+offset_top = 9.0
+offset_right = 55.0
+offset_bottom = 32.0
+text = "SCORE: 0"
+label_settings = SubResource("LabelSettings_aybt7")
+script = ExtResource("10_aybt7")
+score_manager = NodePath("../../ScoreManager")
