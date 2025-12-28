@@ -2,8 +2,8 @@ extends Node
 class_name SFXPlayer
 
 @export var pop_sfx: AudioStream
-@export var pool_size: int = 4
 
+var pool_size: int = Constants.MAX_BALLOONS
 var players: Array[AudioStreamPlayer] = []
 var index = 0
 

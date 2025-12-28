@@ -69,6 +69,10 @@ balloon_scene = ExtResource("7_3vj30")
 player_path = NodePath("../Player")
 score_manager = NodePath("../ScoreManager")
 sfx_player = NodePath("../SFX")
+spawn_ahead_min = null
+spawn_ahead_max = null
+spawn_y_min = null
+spawn_y_max = null
 
 [node name="ScoreManager" type="Node" parent="."]
 script = ExtResource("8_6mti6")

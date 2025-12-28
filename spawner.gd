@@ -4,13 +4,12 @@ extends Node2D
 @export var player_path: NodePath
 @export var score_manager: ScoreManager
 @export var sfx_player: SFXPlayer
-
-@export var max_balloons := 4
 @export var spawn_ahead_min := 200.0
 @export var spawn_ahead_max := 300.0
 @export var spawn_y_min := -200.0
 @export var spawn_y_max := 120.0
 
+var max_balloons := Constants.MAX_BALLOONS
 var player: Node2D
 var active_balloons := 0
 
