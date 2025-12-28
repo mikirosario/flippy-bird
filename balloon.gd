@@ -4,7 +4,8 @@ const MAXHEIGHT = -280.0
 const MINHEIGHT = 165
 const GRAVITY = 300.0
 
-var score_manager: Node = null
+var score_manager: ScoreManager = null
+var sfx_player: SFXPlayer = null
 @export var score_value := 10
 @onready var AnimatedSprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var Bouyancy: float = randf_range(25, 100)
@@ -26,6 +27,8 @@ func _physics_process(delta: float) -> void:
 	position += velocity * delta     
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
+	if sfx_player:
+		sfx_player.play_pop()
 	if score_manager:
 		score_manager.add(score_value)
 	else:
